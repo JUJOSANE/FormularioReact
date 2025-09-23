@@ -19,8 +19,6 @@ export default function Register() {
         });
         alert(respuesta.data.message)
         navigate("/Login")
-        console.log("Respuesta del Servidor");
-        console.log(respuesta);
     } catch (error) {
       console.log(error)
     } 

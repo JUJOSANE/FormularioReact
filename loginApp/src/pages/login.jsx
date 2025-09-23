@@ -12,13 +12,14 @@ export default function Login({onLogin}) {
     try {
         let respuesta = await axios.post("http://localhost/loginApi/login", data)
         alert("Bienvenido " + respuesta.data.nombre)
-        onLogin();
+        onLogin(respuesta.data.nombre);
 
         navigate("/Dashboard")
         console.log("Respuesta del Servidor");
         console.log(respuesta);
     } catch (error) {
       console.log(error)
+      alert("El usuario digitado no coincide")
     }
 
   }
