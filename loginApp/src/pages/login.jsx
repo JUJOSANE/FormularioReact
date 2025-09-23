@@ -8,7 +8,6 @@ export default function Login({onLogin}) {
   let navigate = useNavigate();
   const onSubmited = async (data)=>{
     console.log("Datos del formulario");
-    
     console.log(data);
     try {
         let respuesta = await axios.post("http://localhost/loginApi/login", data)
@@ -34,13 +33,13 @@ export default function Login({onLogin}) {
             <div className="col-sm-8">
                 <form onSubmit={handleSubmit(onSubmited)} className='bg-info-subtle p-4 rounded-3'>
                     <div className="mb-3">
-                        <label for="exampleInputEmail1" className="form-label">Email address</label>
-                        <input type="email" {...register("correo", {required : true})} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        <label  className="form-label">Email address</label>
+                        <input type="email" {...register("correo", {required : true})} className="form-control" />
                         {errors.correo && <p className='text-danger'>Debes escribir un correo</p>}
                     </div>
                     <div className="mb-3">
-                        <label for="exampleInputPassword1" className="form-label">Password</label>
-                        <input type="password" {...register("contrasena", {required : true})} className="form-control" id="exampleInputPassword1" />
+                        <label  className="form-label">Password</label>
+                        <input type="password" {...register("contrasena", {required : true})} className="form-control" />
                         {errors.contrasena && <p className='text-danger'>Debes escribir una contraseña</p>}
                     </div>
                     <button type="submit"  className="btn btn-primary">Submit</button>
